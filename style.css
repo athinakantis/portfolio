@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bgColor: whitesmoke;
+    --dark: #2c2c2c;
+    --mainFont: 'Roboto';
+    --fallbackFont: 'Helvetica';
+}
+
+body {
+    background-color: var(--bgColor);
+    color: var(--dark);
+    font-family: var(--mainFont), var(--fallbackFont);
+}
+
