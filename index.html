@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="assets/favicon/athinakantis_favicon_light.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/icons/athinakantis_favicon_light.svg" type="image/x-icon">
     <title>Athina Kantis Portfolio</title>
 </head>
 <body>
     <header>
         <div class="logo">
+            <img src="/assets/icons/athinakantis_logo_dark.svg" alt="">
             <h1>Athina Kantis</h1>
-            <h2>Web Design and Development</h2>
         </div>
 
         <nav>
@@ -19,25 +19,72 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
             </ul>
         </nav>
     </header>
     <main>
+        <div class="hero">
+            <h2>Design and Development</h2>
+        </div>
         <section id='projects'>
-            <img src="" alt="">
+            <h2>Projects</h2>
+            <div class="card">
+                <img src="assets/images/pancakeCo_Mobile_Preview.png" alt="Screenshot of Pancake Shop mobile order page">
+                <h3>PancakeCo</h3>
+                <p>Example home and order page of a pancake shop!</p>
+                <button>See more</button>
+            </div>
+            <div class="card">
+                <img src="assets/images/bentoGrid_preview.png" alt="Screenshot of Bento Grid front end mentor challenge">
+                <h3>Bento Grid</h3>
+                <p>A Front end Mentor challenge using grid</p>
+                <button>See more</button>
+            </div>
+            <div class="card">
+                <video autoplay muted loop>
+                    <source src="assets/images/Launch_Countdown_Preview.mp4">
+                    Your browser does not support video
+                </video>
+                <h3>Birthday Countdown</h3>
+                <p>A birthday countdown webpage for my niece</p>
+                <button>See more</button>
+            </div>
+
+        </section>
+        <section id='skills'>
+            <h2>Skills</h2>
+            <div class="progressbar">
+                <p>Design</p>
+                <img src="assets/icons/designIcon_POGGladiator.png" alt="">
+            </div>
+            <div class="progressbar">
+                <p>Programming</p>
+                <img src="assets/icons/codeIcon_Icongeek26.png" alt="">
+            </div>
                 <p></p>
-            </img>
-        </section id='skills'>
-        <section>
-            <img src="" alt="">
-                <p></p>
-            </img>
         </section>
         <section id='about'>
-            <img src="" alt="">
-                <p></p>
-            </img>
+            <h2>About</h2>
+            <img src="" alt="" />
+                <p>Hi! :) I'm Athina <br>
+                I design and develop. I'm an art graduate and ex-Nurse Assistant currently studying Full-Stack Web Development at <a href="https://www.bc.fi/">Business College Helsinki</a></p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <form>
+                <label for="name">Name</label>
+                <input type="text" required>
+                <label for="email">Email</label>
+                <input type="email" name="emailInput" id="emailInput">
+                <label for="contactMsg">Message</label>
+                <textarea name="message" id="contactMsg"></textarea>
+                <button type="submit">Send</button>
+            </form>
         </section>
     </main>
+    <footer>
+        <p>Copyright &copy; Athina Kantis 2024</p>
+    </footer>
 </body>
 </html>
