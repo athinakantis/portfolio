@@ -11,6 +11,7 @@ html {
 :root {
     --bgColor: whitesmoke;
     --dark: #2c2c2c;
+    --accent: #767ade;
     --mainFont: 'Roboto';
     --fallbackFont: 'Helvetica';
 }
@@ -123,12 +124,19 @@ section h2 {
     max-height: max-content;
 }
 
-.projectDetails :is(h3) {
+.projectDetails :is(h3, p) {
     margin: 0 0 1rem;
 }
 
-.projectDetails button {
-    margin: 1rem 0 0 ;
+.projectDetails a {
+    background-color: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 1rem;
+    margin: 1rem 0 0;
+    display: block;
+    width: max-content;
 }
 
 #skills {
