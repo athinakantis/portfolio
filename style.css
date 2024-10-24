@@ -106,17 +106,15 @@ section h2 {
 
 .card {
     padding: 2rem;
-    box-shadow: 4px 7px 0px rgba(0,0,0,0.3);
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.6);
     background-color: white;
     border-radius: 5px;
     border: 1px solid black;
-
     display: flex;
     flex: 45%;
     gap: 2rem;
-
-    max-width: fit-content;
-    max-height: max-content;
+    width: 100%;
+    min-width: 450px;
 }
 
 .card img, .card video {
@@ -133,6 +131,8 @@ section h2 {
     object-fit: cover;
 }
 
+
+
 .projectDetails :is(h3, p) {
     margin: 0 0 1rem;
 }
@@ -148,6 +148,8 @@ section h2 {
     width: max-content;
 }
 
+
+/* Skills Section Styling */
 #skills {
     display: flex;
     justify-content: center;
@@ -274,16 +276,15 @@ section h2 {
     max-width: 500px;
     border: 1px solid black;
     border-radius: 5px;
-
-    display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    height: 500px;
 }
 
 #contact form label {
     display: inline-block;
     align-self: flex-end;
-    width: 30%
+    width: 25%
 }
 
 #contact form input, #contact form textarea {
@@ -293,15 +294,31 @@ section h2 {
     font-family: inherit;
     font-size: inherit;
     padding: 0.5rem;
+    width: 74%;
+}
+
+#contact label[for='contactMsg'] {
+    align-self: flex-start;
+    margin: 1rem 0 0
 }
 
 #contact textarea {
-    flex: 60%;
+    flex: 74%;
+    outline: none;
+}
+
+#contact textarea::after {
+    content: 'ABC!!!!!!!!!!!!!!!';
+    background-color: red;
+    height: 100px;
+    width: 400px;
+    display: inline-block;
 }
 
 #contact form button {
+    display: block;
     padding: 0.5rem 1rem;
-    margin: 0 auto;
+    margin: auto;
 }
 
 
