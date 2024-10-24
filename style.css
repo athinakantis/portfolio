@@ -28,7 +28,8 @@ header {
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
+    position: sticky;
+    top:0;
     padding: 1rem;
     background-color: var(--bgColor);
     height: 4rem;
@@ -41,7 +42,8 @@ header img {
 
 header h1 {
     display: inline;
-    font-family: inherit;
+    font-style: italic;
+    font-weight: 400;
 }
 
 header ul {
@@ -59,6 +61,10 @@ header, #projects, footer {
 
 button {
     padding: 0.5rem;
+}
+
+a {
+    text-underline-offset: 4px;
 }
 
 
@@ -106,11 +112,11 @@ section h2 {
     border: 1px solid black;
 
     display: flex;
-    gap: 2rem;
     flex: 45%;
+    gap: 2rem;
 
-    max-width: max-content;
-    max-height: 500px;
+    max-width: fit-content;
+    max-height: max-content;
 }
 
 .card img, .card video {
@@ -120,8 +126,11 @@ section h2 {
 }
 
 .bento {
-    flex: 2;
-    max-height: max-content;
+    max-width: 100%;
+}
+
+.bento img {
+    object-fit: cover;
 }
 
 .projectDetails :is(h3, p) {
@@ -222,18 +231,29 @@ section h2 {
     justify-content: center;
     gap: 1rem;
 }
-#about p {
+
+.aboutInfo {
     background-color: white;
-    padding: 2rem;
+    padding: 2rem 1rem;
     border: 1px solid black;
     border-radius: 5px;
     max-width: 500px;
+    display: flex;
 }
 
-#about p span {
+.bold {
+    font-weight: 600;
+}
+
+.aboutInfo img {
+    width: 200px;
+}
+
+#about .intro {
     display: inline-block;
-    font-size: 1.3rem;
-    font-weight: bold;
+    letter-spacing: 0.5px;
+    font-size: 2rem;
+    font-weight: 800;
     width: 100%;
     margin: 0 0 0.5rem;
 }
@@ -291,3 +311,13 @@ footer {
     padding: 1rem;
 }
 
+
+@media only screen and (max-width: 1000px) {
+    .bento {
+        flex-direction: column;
+    }
+
+    .bento img {
+        height: max-content;
+    }
+}
