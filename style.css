@@ -1,340 +1,319 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-snap-type: y;
+  scroll-behavior: smooth;
 }
 
 :root {
-    --bgColor: whitesmoke;
-    --dark: #2c2c2c;
-    --accent: #767ade;
-    --mainFont: 'Roboto';
-    --fallbackFont: 'Helvetica';
+  --bgColor: whitesmoke;
+  --dark: #2c2c2c;
+  --accent: #767ade;
+  --mainFont: 'Roboto';
+  --fallbackFont: 'Helvetica';
 }
 
 body {
-    background-color: var(--bgColor);
-    color: var(--dark);
-    font-family: var(--mainFont), var(--fallbackFont);
-    line-height: 1.2;
+  background-color: var(--bgColor);
+  color: var(--dark);
+  font-family: var(--mainFont), var(--fallbackFont);
+  line-height: 1.2;
 }
 
-
 header {
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top:0;
-    padding: 1rem;
-    background-color: var(--bgColor);
-    height: 4rem;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  background-color: var(--bgColor);
+  height: 4rem;
 }
 
 header img {
-    width: 3rem;
-    height: max-content;
+  width: 3rem;
+  height: max-content;
 }
 
 header h1 {
-    display: inline;
-    font-style: italic;
-    font-weight: 400;
+  display: inline;
+  font-weight: 400;
 }
 
 header ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 header li {
-    display: inline;
-    margin: 0 0.5rem;
+  display: inline;
+  margin: 0 0.5rem;
 }
 
-header, #projects, footer {
-    display: flex;
+header,
+#projects,
+footer {
+  display: flex;
 }
 
 button {
-    padding: 0.5rem;
+  padding: 0.5rem;
 }
 
 a {
-    text-underline-offset: 4px;
+  text-underline-offset: 4px;
 }
-
 
 /* Main Content Styling */
 .hero {
-    background-color: grey;
-    height: 80vh;
+  height: calc(100vh - 4rem);
 }
 
-
 section {
-    padding: 2rem;
-    min-height: 60vh;
+  padding: 2rem;
+  min-height: 60vh;
 }
 
 section h2 {
-    text-align: center;
-    font-weight: 400;
+  text-align: center;
+  font-weight: 400;
 }
 
 #projects {
-    scroll-snap-align: center ;
-    flex-wrap: wrap;
-    gap: 1rem;
+  scroll-snap-align: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 #projects h2 {
- width: 100%;
+  width: 100%;
 }
 
 .cardContainer {
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  max-width: 800px;
+  /*   max-height: 500px;
+ */
 }
 
 .card {
-    padding: 2rem;
-    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.6);
-    background-color: white;
-    border-radius: 5px;
-    border: 1px solid black;
-    display: flex;
-    flex: 45%;
-    gap: 2rem;
-    width: 100%;
-    min-width: 450px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  display: flex;
+  flex: 45%;
+  width: 50%;
+  min-width: 350px;
 }
 
-.card img, .card video {
-    border: 1px solid black;
-    max-width: 100%;
-    height: 400px;
+.card img,
+.card video {
+  border-right: 1px solid black;
+  max-width: 100%;
+  height: 300px;
 }
 
 .bento {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .bento img {
-    object-fit: cover;
+  object-fit: cover;
 }
 
+.projectDetails {
+  padding: 1rem;
+}
 
+.projectDetails h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
 
 .projectDetails :is(h3, p) {
-    margin: 0 0 1rem;
+  margin: 0 0 1rem;
 }
 
 .projectDetails a {
-    background-color: var(--accent);
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 1rem;
-    margin: 1rem 0 0;
-    display: block;
-    width: max-content;
+  background-color: var(--accent);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 1rem;
+  margin: 2rem 0 0;
+  display: block;
+  width: max-content;
 }
-
 
 /* Skills Section Styling */
 #skills {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    height: 80vh;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  height: 80vh;
+  flex-direction: column;
 }
 
 #skills h2 {
-    width: 100%;
-    align-self: end;
+  width: 100%;
+  align-self: end;
 }
 
 .skillContainer {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .skill {
-    background-color: white;
-    padding: 2rem;
-    margin: 1rem;
-    width: 300px;
-    font-weight: 700;
-    border-radius: 5px;
-    border: 1px solid black;
-    height: max-content;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+  background-color: white;
+  padding: 2rem;
+  margin: 1rem;
+  width: 300px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: 1px solid black;
+  height: max-content;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .skill p {
-    font-size: 1.4rem;
-    flex: 1;
-    align-self: center;
+  font-size: 1.4rem;
+  flex: 1;
+  align-self: center;
 }
 
-
 .progressbar {
-    width: 100%;
-    height: 7px;
-    border: 1px solid black;
-    border-radius: 2px;
+  width: 100%;
+  height: 7px;
+  border: 1px solid black;
+  border-radius: 2px;
 }
 
 .skill img {
-    display: inline;
-    width: 3rem;
+  display: inline;
+  width: 3rem;
 }
 
 .progressbar.progress::after {
-    height: 6px;
-    width: 80%;
-    background-color: var(--dark);
-    border-radius: 2px;
-    display: block;
-    border-right: 1px solid black;
+  height: 6px;
+  width: 80%;
+  background-color: var(--dark);
+  border-radius: 2px;
+  display: block;
+  border-right: 1px solid black;
 }
 
 .progressbar::after {
-    content: '';
-    width: 0%;
-    background-color: var(--dark);
-    display: block;
-    transition: all 500ms ease-out;
+  content: '';
+  width: 0%;
+  background-color: var(--dark);
+  display: block;
+  transition: all 500ms ease-out;
 }
 
-.skill:nth-child(2n+0) :is(.progressbar.progress)::after {
-    max-width: 70%;
+.skill:nth-child(2n + 0) :is(.progressbar.progress)::after {
+  max-width: 70%;
 }
-
-
 
 /* About Section Styling */
 #about {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .aboutInfo {
-    background-color: white;
-    padding: 2rem 1rem;
-    border: 1px solid black;
-    border-radius: 5px;
-    max-width: 500px;
-    display: flex;
+  background-color: white;
+  padding: 2rem 1rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  max-width: 500px;
+  display: flex;
 }
 
 .bold {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .aboutInfo img {
-    width: 200px;
+  width: 200px;
 }
 
 #about .intro {
-    display: inline-block;
-    letter-spacing: 0.5px;
-    font-size: 2rem;
-    font-weight: 800;
-    width: 100%;
-    margin: 0 0 0.5rem;
+  display: inline-block;
+  letter-spacing: 0.5px;
+  font-size: 2rem;
+  font-weight: 800;
+  width: 100%;
+  margin: 0 0 0.5rem;
 }
-
 
 /* Contact Section Styling */
 #contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 80vh;
 }
 #contact form {
-    background-color: white;
-    padding: 2rem;
-    max-width: 500px;
-    border: 1px solid black;
-    border-radius: 5px;
-    flex-wrap: wrap;
-    gap: 1rem;
-    height: 500px;
+  display: flex;
+  background-color: white;
+  padding: 2rem;
+  max-width: 500px;
+  border: 1px solid black;
+  border-radius: 5px;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 #contact form label {
-    display: inline-block;
-    align-self: flex-end;
-    width: 25%
+  display: inline-block;
+  align-self: flex-end;
+  width: 15%;
 }
 
-#contact form input, #contact form textarea {
-    border: none;
-    border-bottom: 1px solid black;
-    flex: 1;
-    font-family: inherit;
-    font-size: inherit;
-    padding: 0.5rem;
-    width: 74%;
-}
-
-#contact label[for='contactMsg'] {
-    align-self: flex-start;
-    margin: 1rem 0 0
-}
-
+#contact form input,
 #contact textarea {
-    flex: 74%;
-    outline: none;
+  border: none;
+  border-bottom: 1px solid black;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0.5rem;
+  width: 81%;
+  outline: none;
 }
 
-#contact textarea::after {
-    content: 'ABC!!!!!!!!!!!!!!!';
-    background-color: red;
-    height: 100px;
-    width: 400px;
-    display: inline-block;
+#contact form textarea {
+  outline: none;
+  width: 62%;
+  field-sizing: content;
 }
 
 #contact form button {
-    display: block;
-    padding: 0.5rem 1rem;
-    margin: auto;
+  padding: 0.5rem 1rem;
+  max-height: max-content;
+  align-self: end;
 }
-
-
 
 /* Footer Styling */
 footer {
-    padding: 1rem;
+  padding: 1rem;
 }
 
-
 @media only screen and (max-width: 1000px) {
-    .bento {
-        flex-direction: column;
-    }
-
-    .bento img {
-        height: max-content;
-    }
 }
