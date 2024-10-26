@@ -1,3 +1,4 @@
+// When progressbar are in viewport, show 'progress'
 const progressBars = document.querySelectorAll('.progressbar')
 const observer = new IntersectionObserver(entries => {
     entries.forEach((entry) => {
@@ -8,12 +9,12 @@ const observer = new IntersectionObserver(entries => {
         threshold: 1
     })
 })
-
 progressBars.forEach((el) => observer.observe(el))
 
 
-const toTopBtn = document.querySelector('#toTopBtn')
 
+// Back to top button only shows then not on header
+const toTopBtn = document.querySelector('#toTopBtn')
 window.addEventListener('scroll', () => {
     if (window.scrollY > 195) {
         toTopBtn.style.transform = `translateY(0)`;
@@ -21,56 +22,66 @@ window.addEventListener('scroll', () => {
         toTopBtn.style.transform = `translateY(6rem)`;
     };
 });
-
 toTopBtn.addEventListener('click', () => window.scroll(0, 0))
 
 
 
-function heroCode() {
-    document.createElement('p')
-    p.textContent = generateRandomCode()
-    console.log(generateRandomCode())
-}
 
-
-function generateRandomCode() {
-    return codeSnippets[Math.round(Math.random() * codeSnippets.length)]
-}
 
 
 const codeSnippets = [
     'touch whoIsAthina.js',
     'const favoriteAnimal = cats 😺',
     `if (bored === true) {
-        paintSomething()
+        athina.code()
     }`,
-    `while (coffeeCup === empty) {
+    `while (coffee === null) {
         athina.brewCoffee()
     }`,
     `if (gymday.includes(today)) {
         athina.goGym()
-    }`,
-    `else {
-        athina.code()
     }`
 ]
 
 
+// Typewriter effect for hero banner
 let typeWriterInterval;
-const command = document.querySelector('#command');
-
+let newLine;
 function typeWriter(snippet) {
+    const p = document.createElement('p')
+    document.querySelector('.hero').appendChild(p)
+    if (p.previousElementSibling && p.previousElementSibling.classList.contains('newLine')) {
+        p.previousElementSibling.classList.toggle('newLine')
+    }
+    p.classList.toggle('newLine')
+
     let index = 0;
 
-    typeWriterInterval = setInterval(() => {
-        command.textContent += snippet[index];
-        index++;
-
-        if (index === snippet.length) {
-            clearInterval(typeWriterInterval);
-        }
-    }, 100);
+    setTimeout(() => {
+        typeWriterInterval = setInterval(() => {
+            p.textContent += snippet[index];
+            index++;
+    
+            if (index === snippet.length) {
+                clearInterval(typeWriterInterval);
+            }
+        }, 100);
+    }, 300)
 }
 
-typeWriter('touch whoIsAthina.js');
+// Show codesnippets 
+let commandInterval;
+function animateCommands() {
+    let index = 1;
+    typeWriter(codeSnippets[0])
+    
+    commandInterval = setInterval(() => {
+        typeWriter(codeSnippets[index])
+        index++;
 
+        if (index === codeSnippets.length) {
+            clearInterval(commandInterval)
+        }
+    }, 7000)
+}
+animateCommands()
