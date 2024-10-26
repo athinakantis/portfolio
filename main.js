@@ -25,17 +25,24 @@ window.addEventListener('scroll', () => {
 toTopBtn.addEventListener('click', () => window.scroll(0, 0))
 
 
-
-
+const h1 = document.querySelector('h1');
+h1.addEventListener('click', () => {
+    if (window.location.pathname === '/index.html') {
+        window.scroll(0, 0);
+    } else {
+        window.location.replace('http://127.0.0.1:5500/index.html');
+        console.log('clicked')
+    }
+})
 
 
 const codeSnippets = [
     'touch whoIsAthina.js',
     'const favoriteAnimal = cats 😺',
-    `if (bored === true) {
+    `if (bored) {
         athina.code()
     }`,
-    `while (coffee === null) {
+    `if (!coffee) {
         athina.brewCoffee()
     }`,
     `if (gymday.includes(today)) {
@@ -44,44 +51,45 @@ const codeSnippets = [
 ]
 
 
-// Typewriter effect for hero banner
 let typeWriterInterval;
-let newLine;
-function typeWriter(snippet) {
-    const p = document.createElement('p')
-    document.querySelector('.hero').appendChild(p)
-    if (p.previousElementSibling && p.previousElementSibling.classList.contains('newLine')) {
-        p.previousElementSibling.classList.toggle('newLine')
-    }
-    p.classList.toggle('newLine')
+let typeWriterIndex = 0;
 
-    let index = 0;
-
-    setTimeout(() => {
-        typeWriterInterval = setInterval(() => {
-            p.textContent += snippet[index];
-            index++;
-    
-            if (index === snippet.length) {
-                clearInterval(typeWriterInterval);
-            }
-        }, 100);
-    }, 300)
-}
-
-// Show codesnippets 
-let commandInterval;
 function animateCommands() {
-    let index = 1;
-    typeWriter(codeSnippets[0])
-    
-    commandInterval = setInterval(() => {
-        typeWriter(codeSnippets[index])
-        index++;
-
-        if (index === codeSnippets.length) {
-            clearInterval(commandInterval)
-        }
-    }, 7000)
+    if (typeWriterIndex < codeSnippets.length) {
+        // Call typeWriter with the current snippet and wait for it to resolve
+        typeWriter(codeSnippets[typeWriterIndex]).then(() => {
+            typeWriterIndex++; // Move to the next snippet
+            setTimeout(animateCommands, 500)
+        });
+    }
 }
-animateCommands()
+
+function typeWriter(snippet) {
+    const p = document.createElement('p');
+    document.querySelector('.hero').appendChild(p);
+
+    if (p.previousElementSibling && p.previousElementSibling.classList.contains('newLine')) {
+        p.previousElementSibling.classList.toggle('newLine');
+    }
+    p.classList.toggle('newLine');
+
+    return new Promise((resolve) => { 
+        let index = 0;
+
+        // Start typing after a slight delay
+        setTimeout(() => {
+            typeWriterInterval = setInterval(() => {
+                p.textContent += snippet[index];
+                index++;
+
+                if (index === snippet.length) {
+                    clearInterval(typeWriterInterval);
+                    resolve(); // Resolve the promise once typing is complete
+                }
+            }, 100); // Typing speed
+        }, 500); // Initial delay for realism
+    });
+}
+
+// Start the animation
+animateCommands();
