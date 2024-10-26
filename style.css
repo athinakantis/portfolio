@@ -68,6 +68,10 @@ header h1 {
   font-family: var(--monoFont);
 }
 
+header h1:hover {
+  cursor: pointer;
+}
+
 
 header ul a {
   font-family: var(--monoFont);
@@ -400,8 +404,15 @@ footer {
 
 
 /* Gallery.html Styling */
-.gridContainer {
+#gridContainer {
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+#gridContainer img {
+  max-width: 500px;
+  max-height: 200px;
 }
 
 
