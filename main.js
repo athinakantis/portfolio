@@ -38,13 +38,11 @@ h1.addEventListener('click', () => {
 
 const codeSnippets = [
     'touch whoIsAthina.js',
-    'const favoriteAnimal = cats 😺',
+    `const favoriteAnimal = 'cats 🐱'`,
     `if (bored) {
         athina.code()
     }`,
-    `if (!coffee) {
-        athina.brewCoffee()
-    }`,
+    `coffee ? sip() : cry()`,
     `if (gymday.includes(today)) {
         athina.goGym()
     }`
@@ -56,9 +54,8 @@ let typeWriterIndex = 0;
 
 function animateCommands() {
     if (typeWriterIndex < codeSnippets.length) {
-        // Call typeWriter with the current snippet and wait for it to resolve
         typeWriter(codeSnippets[typeWriterIndex]).then(() => {
-            typeWriterIndex++; // Move to the next snippet
+            typeWriterIndex++;
             setTimeout(animateCommands, 500)
         });
     }
@@ -66,7 +63,7 @@ function animateCommands() {
 
 function typeWriter(snippet) {
     const p = document.createElement('p');
-    document.querySelector('.hero').appendChild(p);
+    document.querySelector('#commands').appendChild(p);
 
     if (p.previousElementSibling && p.previousElementSibling.classList.contains('newLine')) {
         p.previousElementSibling.classList.toggle('newLine');
@@ -91,5 +88,25 @@ function typeWriter(snippet) {
     });
 }
 
-// Start the animation
 animateCommands();
+
+let currentTheme = 'light';
+const root = document.querySelector(':root');
+const darkModeBtn = document.querySelector('#darkMode');
+const lightModeBtn = document.querySelector('#lightMode');
+lightModeBtn.addEventListener('dblclick', () => switchTheme('light'))
+darkModeBtn.addEventListener('dblclick', () => switchTheme('dark'))
+
+
+function switchTheme(theme) {
+    if (theme === currentTheme) return;
+    const rs = getComputedStyle(root)
+    
+    const main = rs.getPropertyValue('--main');
+    const secondary = rs.getPropertyValue('--secondary');
+
+    root.style.setProperty('--main', secondary);
+    root.style.setProperty('--secondary', main);
+
+    currentTheme = theme;
+}
