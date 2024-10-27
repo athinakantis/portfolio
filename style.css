@@ -125,6 +125,7 @@ footer {
 main {
   position: relative;
   min-width: fit-content;
+  min-height: calc(100vh - 7rem);
 }
 
 .hero {
@@ -132,7 +133,25 @@ main {
   position: relative;
   top: 4rem;
   margin: 2rem;
-  font-size: 1.5rem;
+}
+
+#terminal {
+  width: 400px;
+  border: 1px solid black;
+  border-radius: 5px;
+  position: absolute;
+  height: 400px;
+  right: 5rem;
+  bottom: 13rem;
+}
+
+#program {
+  border-bottom: 1px solid black;
+  padding: 3px 5px;
+}
+
+#commands {
+  padding: 1rem;
 }
 
 .newLine::before {
