@@ -434,12 +434,29 @@ footer {
   }
 }
 
-
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   header {
-    padding: 1rem 0 1rem;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
     font-size: 0.8rem;
-    align-items: start;
+  }
+
+  h1 {
+    margin: 0
+  }
+
+  .logo {
+    margin: 0 auto;
+  }
+
+  nav {
+    margin: 0 auto;
+    position: relative;
+  }
+
+  header ul a {
+    margin: 0 0.5rem;
   }
 
   .logo h1 {
@@ -449,6 +466,11 @@ footer {
   .logo img {
     width: 2rem;
   }
+}
+
+
+@media only screen and (max-width: 500px) {
+
 
   .aboutInfo {
     position: relative;
@@ -479,6 +501,7 @@ footer {
 
 @media only screen and (max-width: 415px) {
 
+
   #projects {
     width: fit-content;
     justify-content: center;
@@ -490,6 +513,8 @@ footer {
     text-align: center;
     align-items: center;
     padding: 2rem 0;
+    margin: 0 1rem;
+    min-width: auto;
   }
 
   .card :is(video, img) {
