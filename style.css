@@ -27,6 +27,7 @@ body {
   color: var(--dark);
   font-family: var(--monoFont), var(--fallbackFont);
   line-height: 1.2;
+  min-width: fit-content;
 }
 
 header {
@@ -123,14 +124,15 @@ footer {
 /* Main Content Styling */
 main {
   position: relative;
+  min-width: fit-content;
 }
 
 .hero {
   height: calc(100vh - 8rem);
-  flex-direction: column;
   position: relative;
   top: 4rem;
   margin: 2rem;
+  font-size: 1.5rem;
 }
 
 .newLine::before {
@@ -141,16 +143,16 @@ main {
 section {
   padding: 2rem;
   min-height: 60vh;
+  scroll-margin-top: 5rem;
 }
 
 section h2 {
-  text-align: center;
   font-weight: 400;
   margin: 0 0 2rem;
+  text-align: center;
 }
 
 #projects {
-  scroll-snap-align: center;
   flex-wrap: wrap;
   gap: 1rem;
 }
@@ -309,6 +311,7 @@ section h2 {
   border-radius: 5px;
   max-width: 500px;
   display: flex;
+  gap: 1rem;
 }
 
 .bold {
@@ -316,7 +319,9 @@ section h2 {
 }
 
 .aboutInfo img {
-  width: 200px;
+  min-width: 100px;
+  width: 100%;
+  object-fit: cover;
 }
 
 #about .intro {
@@ -338,20 +343,20 @@ section h2 {
   height: 80vh;
 }
 #contact form {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
   background-color: white;
-  padding: 2rem;
+  padding: 1rem;
   max-width: 500px;
   border: 1px solid black;
   border-radius: 5px;
-  flex-wrap: wrap;
   gap: 1rem;
 }
 
 #contact form label {
   display: inline-block;
   align-self: flex-end;
-  width: 15%;
+  min-width: fit-content;
 }
 
 #contact form input,
@@ -361,20 +366,20 @@ section h2 {
   font-family: inherit;
   font-size: inherit;
   padding: 0.5rem;
-  width: 81%;
   outline: none;
 }
 
 #contact form textarea {
   outline: none;
-  width: 62%;
   field-sizing: content;
 }
 
 #contact form button {
   padding: 0.5rem 1rem;
   max-height: max-content;
-  align-self: end;
+  grid-column: 2;
+  justify-self: end;
+  width: fit-content
 }
 
 /* Footer Styling */
@@ -413,7 +418,16 @@ footer {
 #gridContainer img {
   max-width: 500px;
   max-height: 200px;
+  object-fit: cover;
+  height: 200px;
+  width: 200px;
 }
+
+#gridContainer div:nth-child(7) img{
+  object-position: left;
+}
+
+
 
 
 @media only screen and (max-width: 700px) {
@@ -424,6 +438,116 @@ footer {
   .bento img {
     max-height: fit-content;
     min-height: fit-content;
+    border-right: none;
+    border-top-right-radius: 5px;
   }
 }
 
+@media only screen and (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    font-size: 0.8rem;
+  }
+
+  h1 {
+    margin: 0
+  }
+
+  .logo {
+    margin: 0 auto;
+  }
+
+  nav {
+    margin: 0 auto;
+    position: relative;
+  }
+
+  header ul a {
+    margin: 0 0.5rem;
+  }
+
+  .logo h1 {
+    font-size: 1.2rem;
+  }
+
+  .logo img {
+    width: 2rem;
+  }
+}
+
+
+@media only screen and (max-width: 500px) {
+
+
+  .aboutInfo {
+    position: relative;
+  }
+
+  .aboutInfo .intro {
+    font-size: 1rem;
+  }
+
+  #about h2 {
+    display: none;
+  } 
+
+  .aboutInfo p {
+    text-align: center;
+    margin: 5rem 0 0;
+  }
+
+  .aboutInfo img {
+    position: absolute;
+    width: 140px;
+    min-width: 70px;
+    flex: 1;
+    top: -80px;
+    left: 30%;
+  }
+}
+
+@media only screen and (max-width: 415px) {
+
+
+  #projects {
+    width: fit-content;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 2rem 0;
+    margin: 0 1rem;
+    min-width: auto;
+  }
+
+  .card :is(video, img) {
+    width: 70%;
+    max-width: auto;
+    height: auto;
+    border: 1px solid black;
+    border-radius: unset;
+  }
+
+  .card a {
+    margin: 0 auto;
+  }
+
+  .bento img {
+    border-radius: unset;
+    border: 1px solid black;
+  }
+
+  section {
+    min-width: fit-content;
+  }
+
+  #skills h2 {
+    min-width: fit-content;
+  }
+}
