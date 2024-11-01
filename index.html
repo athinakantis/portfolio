@@ -13,23 +13,30 @@
   </head>
   <body>
     <header>
-      <div class="logo">
-        <h1>Athina 
-          <img src="/assets/icons/athinakantis_logo_dark.svg" alt="Logo image" />
-          Kantis</h1>
-      </div>
-
-      <nav>
-        <ul>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#about">About</a>
-          <a href="gallery.html">Gallery</a>
-        </ul>
-      </nav>
+      <div id="headerContainer">
+        <div class="logo">
+          <h1>Athina 
+            <img src="/assets/icons/athinakantis_logo_dark.svg" alt="Logo image" />
+            Kantis</h1>
+          </div>
+          
+          <nav>
+            <ul>
+              <a href="#projects">Projects</a>
+              <a href="#skills">Skills</a>
+              <a href="#about">About</a>
+              <a href="gallery.html">Gallery</a>
+            </ul>
+          </nav>
+        </div>
     </header>
     <main>
-      <div class="hero"> 
+      <div class="hero">
+        <div id="terminal">
+          <p id='program'>athina.exe</p>
+          <div id="commands">
+          </div>
+        </div>
       </div>
       <section id="projects">
         <h2>Projects</h2>
@@ -121,7 +128,7 @@
         <form>
           <label for="contactName">Name</label>
           <input type="text" id="contactName" required />
-          <label for="email">Email</label>
+          <label for="emailInput">Email</label>
           <input type="email" name="emailInput" id="emailInput" />
           <label for="contactMsg">Message</label>
           <textarea rows="3" name="message" id="contactMsg"></textarea>

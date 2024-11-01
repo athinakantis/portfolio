@@ -25,26 +25,25 @@ window.addEventListener('scroll', () => {
 toTopBtn.addEventListener('click', () => window.scroll(0, 0))
 
 
+// If user is at gallery, pressing logo takes them to main page
+// If already on main page, scrolls to the top
 const h1 = document.querySelector('h1');
 h1.addEventListener('click', () => {
     if (window.location.pathname === '/index.html') {
         window.scroll(0, 0);
     } else {
         window.location.replace('http://127.0.0.1:5500/index.html');
-        console.log('clicked')
     }
 })
 
 
 const codeSnippets = [
     'touch whoIsAthina.js',
-    'const favoriteAnimal = cats 😺',
+    `const favoriteAnimal = 'cats 🐱'`,
     `if (bored) {
         athina.code()
     }`,
-    `if (!coffee) {
-        athina.brewCoffee()
-    }`,
+    `coffee ? sip() : cry()`,
     `if (gymday.includes(today)) {
         athina.goGym()
     }`
@@ -56,9 +55,8 @@ let typeWriterIndex = 0;
 
 function animateCommands() {
     if (typeWriterIndex < codeSnippets.length) {
-        // Call typeWriter with the current snippet and wait for it to resolve
         typeWriter(codeSnippets[typeWriterIndex]).then(() => {
-            typeWriterIndex++; // Move to the next snippet
+            typeWriterIndex++;
             setTimeout(animateCommands, 500)
         });
     }
@@ -66,7 +64,7 @@ function animateCommands() {
 
 function typeWriter(snippet) {
     const p = document.createElement('p');
-    document.querySelector('.hero').appendChild(p);
+    document.querySelector('#commands').appendChild(p);
 
     if (p.previousElementSibling && p.previousElementSibling.classList.contains('newLine')) {
         p.previousElementSibling.classList.toggle('newLine');
@@ -76,7 +74,6 @@ function typeWriter(snippet) {
     return new Promise((resolve) => { 
         let index = 0;
 
-        // Start typing after a slight delay
         setTimeout(() => {
             typeWriterInterval = setInterval(() => {
                 p.textContent += snippet[index];
@@ -84,12 +81,12 @@ function typeWriter(snippet) {
 
                 if (index === snippet.length) {
                     clearInterval(typeWriterInterval);
-                    resolve(); // Resolve the promise once typing is complete
+                    resolve();
                 }
-            }, 100); // Typing speed
-        }, 500); // Initial delay for realism
+            }, 100); 
+        }, 500); 
     });
 }
 
-// Start the animation
 animateCommands();
+

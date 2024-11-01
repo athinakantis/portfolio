@@ -9,12 +9,13 @@ html {
 }
 
 :root {
-  --bgColor: whitesmoke;
-  --dark: #2c2c2c;
-  --accent: #767ade;
+  --main: whitesmoke;
+  --secondary: #2c2c2c;
+  --accent: #9495d3;
   --mainFont: 'Roboto';
   --fallbackFont: 'Helvetica';
   --monoFont: 'Ubunto Mono';
+  --remain: #000;
 }
 
 @font-face {
@@ -23,28 +24,35 @@ html {
 }
 
 body {
-  background-color: var(--bgColor);
-  color: var(--dark);
+  background-color: var(--main);
+  color: var(--secondary);
   font-family: var(--monoFont), var(--fallbackFont);
   line-height: 1.2;
   min-width: fit-content;
 }
 
 header {
+  background-color: var(--main);
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
   position: sticky;
   top: 0;
-  padding: 2rem 1rem 1rem;
-  background-color: var(--bgColor);
   z-index: 2;
+}
+
+#headerContainer {
+  width: 60%;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1rem 1rem;
   height: 3rem;
+  z-index: 5;
 }
 
 header::before {
   content: '';
-  background: linear-gradient(var(--bgColor), transparent);
+  background: linear-gradient(var(--main), transparent);
   width: 100%;
   position: absolute;
   top: 3rem;
@@ -58,6 +66,7 @@ header::before {
 }
 
 header h1 {
+  color: var(--remain);
   display: flex;
   align-items: end;
   gap: 0.5rem;
@@ -67,6 +76,10 @@ header h1 {
   top: -8px;
   margin: 0 0 0 0.5rem;
   font-family: var(--monoFont);
+}
+
+header nav {
+  width: max-content;
 }
 
 header h1:hover {
@@ -123,16 +136,34 @@ footer {
 
 /* Main Content Styling */
 main {
-  position: relative;
   min-width: fit-content;
+  min-height: calc(100vh - 7rem);
+  max-width: 60%;
+  margin: auto;
 }
 
 .hero {
   height: calc(100vh - 8rem);
-  position: relative;
-  top: 4rem;
-  margin: 2rem;
-  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#terminal {
+  width: 350px;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 400px;
+  color: var(--remain);
+}
+
+#program {
+  border-bottom: 1px solid black;
+  padding: 3px 5px;
+}
+
+#commands {
+  padding: 1rem;
 }
 
 .newLine::before {
@@ -147,6 +178,7 @@ section {
 }
 
 section h2 {
+  color: var(--remain);
   font-weight: 400;
   margin: 0 0 2rem;
   text-align: center;
@@ -171,7 +203,7 @@ section h2 {
 }
 
 .card {
-  background-color: white;
+  background-color: var(--main);
   border-radius: 5px;
   border: 1px solid black;
   display: flex;
@@ -199,6 +231,7 @@ section h2 {
 
 .projectDetails {
   padding: 1rem;
+  color: var(--remain)
 }
 
 .projectDetails h3 {
@@ -243,7 +276,7 @@ section h2 {
 }
 
 .skill {
-  background-color: white;
+  background-color: var(--main);
   padding: 2rem;
   margin: 1rem;
   width: 300px;
@@ -257,6 +290,7 @@ section h2 {
 }
 
 .skill p {
+  color: black;
   font-size: 1.4rem;
   flex: 1;
   align-self: center;
@@ -275,18 +309,21 @@ section h2 {
 }
 
 .progressbar.progress::after {
-  height: 6px;
+  height: 5px;
   width: 80%;
-  background-color: var(--dark);
+  background-color: #1d1d1d;
   border-radius: 2px;
   display: block;
-  border-right: 1px solid black;
+  border: 1px solid black;
+  position: relative;
+  top: -1px;
+  left: -1px;
 }
 
 .progressbar::after {
   content: '';
   width: 0%;
-  background-color: var(--dark);
+  background-color: #1d1d1d;
   display: block;
   transition: all 500ms ease-out;
 }
@@ -305,7 +342,8 @@ section h2 {
 }
 
 .aboutInfo {
-  background-color: white;
+  background-color: var(--main);
+  color: var(--remain);
   padding: 2rem 1rem;
   border: 1px solid black;
   border-radius: 5px;
@@ -316,6 +354,7 @@ section h2 {
 
 .bold {
   font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .aboutInfo img {
@@ -345,7 +384,7 @@ section h2 {
 #contact form {
   display: grid;
   grid-template-columns: 1fr 5fr;
-  background-color: white;
+  background-color: var(--main);
   padding: 1rem;
   max-width: 500px;
   border: 1px solid black;
@@ -357,6 +396,7 @@ section h2 {
   display: inline-block;
   align-self: flex-end;
   min-width: fit-content;
+  color: black;
 }
 
 #contact form input,
@@ -367,6 +407,7 @@ section h2 {
   font-size: inherit;
   padding: 0.5rem;
   outline: none;
+  background: inherit;
 }
 
 #contact form textarea {
@@ -379,12 +420,22 @@ section h2 {
   max-height: max-content;
   grid-column: 2;
   justify-self: end;
-  width: fit-content
+  width: fit-content;
+  background-color: inherit;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 /* Footer Styling */
 footer {
   padding: 1rem;
+  color: black;
+  width: 60%;
+  margin: auto;
 }
 
 
@@ -423,11 +474,27 @@ footer {
   width: 200px;
 }
 
+#gridContainer div {
+  justify-self: center;
+  width: min-content;
+}
+
 #gridContainer div:nth-child(7) img{
   object-position: left;
 }
 
+@media only screen and (max-width: 1000px) {
+  #headerContainer {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    font-size: 0.8rem;
+  }
 
+  header ul a {
+    margin: 0 0.5rem;
+  }
+}
 
 
 @media only screen and (max-width: 700px) {
@@ -444,13 +511,6 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 0;
-    font-size: 0.8rem;
-  }
-
   h1 {
     margin: 0
   }
@@ -462,10 +522,6 @@ footer {
   nav {
     margin: 0 auto;
     position: relative;
-  }
-
-  header ul a {
-    margin: 0 0.5rem;
   }
 
   .logo h1 {
