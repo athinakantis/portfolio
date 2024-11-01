@@ -25,13 +25,14 @@ window.addEventListener('scroll', () => {
 toTopBtn.addEventListener('click', () => window.scroll(0, 0))
 
 
+// If user is at gallery, pressing logo takes them to main page
+// If already on main page, scrolls to the top
 const h1 = document.querySelector('h1');
 h1.addEventListener('click', () => {
     if (window.location.pathname === '/index.html') {
         window.scroll(0, 0);
     } else {
         window.location.replace('http://127.0.0.1:5500/index.html');
-        console.log('clicked')
     }
 })
 
@@ -73,7 +74,6 @@ function typeWriter(snippet) {
     return new Promise((resolve) => { 
         let index = 0;
 
-        // Start typing after a slight delay
         setTimeout(() => {
             typeWriterInterval = setInterval(() => {
                 p.textContent += snippet[index];
@@ -81,32 +81,12 @@ function typeWriter(snippet) {
 
                 if (index === snippet.length) {
                     clearInterval(typeWriterInterval);
-                    resolve(); // Resolve the promise once typing is complete
+                    resolve();
                 }
-            }, 100); // Typing speed
-        }, 500); // Initial delay for realism
+            }, 100); 
+        }, 500); 
     });
 }
 
 animateCommands();
 
-let currentTheme = 'light';
-const root = document.querySelector(':root');
-const darkModeBtn = document.querySelector('#darkMode');
-const lightModeBtn = document.querySelector('#lightMode');
-lightModeBtn.addEventListener('dblclick', () => switchTheme('light'))
-darkModeBtn.addEventListener('dblclick', () => switchTheme('dark'))
-
-
-function switchTheme(theme) {
-    if (theme === currentTheme) return;
-    const rs = getComputedStyle(root)
-    
-    const main = rs.getPropertyValue('--main');
-    const secondary = rs.getPropertyValue('--secondary');
-
-    root.style.setProperty('--main', secondary);
-    root.style.setProperty('--secondary', main);
-
-    currentTheme = theme;
-}

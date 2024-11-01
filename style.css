@@ -11,7 +11,7 @@ html {
 :root {
   --main: whitesmoke;
   --secondary: #2c2c2c;
-  --accent: #767ade;
+  --accent: #9495d3;
   --mainFont: 'Roboto';
   --fallbackFont: 'Helvetica';
   --monoFont: 'Ubunto Mono';
@@ -32,15 +32,22 @@ body {
 }
 
 header {
+  background-color: var(--main);
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
   position: sticky;
   top: 0;
-  padding: 2rem 1rem 1rem;
-  background-color: var(--main);
   z-index: 2;
+}
+
+#headerContainer {
+  width: 60%;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1rem 1rem;
   height: 3rem;
+  z-index: 5;
 }
 
 header::before {
@@ -69,6 +76,10 @@ header h1 {
   top: -8px;
   margin: 0 0 0 0.5rem;
   font-family: var(--monoFont);
+}
+
+header nav {
+  width: max-content;
 }
 
 header h1:hover {
@@ -125,58 +136,24 @@ footer {
 
 /* Main Content Styling */
 main {
-  position: relative;
   min-width: fit-content;
   min-height: calc(100vh - 7rem);
+  max-width: 60%;
+  margin: auto;
 }
 
 .hero {
   height: calc(100vh - 8rem);
-  position: relative;
-  top: 4rem;
-  margin: 2rem;
-}
-
-.program {
-  width: fit-content;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  position: absolute;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-#lightMode {
-  right: 9rem;
-  top: 9rem;
-}
-
-#darkMode {
-  top: 6rem;
-  left: 10rem;
-}
-
-.program img {
-  width: 3rem; 
-}
-
-
-.program p {
-  font-size: 0.6rem;
-  color: var(--remain);
+  justify-content: center;
+  align-items: center;
 }
 
 #terminal {
-  width: 400px;
+  width: 350px;
   border: 1px solid black;
   border-radius: 5px;
-  position: absolute;
   height: 400px;
-  right: 5rem;
-  bottom: 13rem;
   color: var(--remain);
 }
 
@@ -457,6 +434,8 @@ section h2 {
 footer {
   padding: 1rem;
   color: black;
+  width: 60%;
+  margin: auto;
 }
 
 
@@ -495,11 +474,27 @@ footer {
   width: 200px;
 }
 
+#gridContainer div {
+  justify-self: center;
+  width: min-content;
+}
+
 #gridContainer div:nth-child(7) img{
   object-position: left;
 }
 
+@media only screen and (max-width: 1000px) {
+  #headerContainer {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    font-size: 0.8rem;
+  }
 
+  header ul a {
+    margin: 0 0.5rem;
+  }
+}
 
 
 @media only screen and (max-width: 700px) {
@@ -516,13 +511,6 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 0;
-    font-size: 0.8rem;
-  }
-
   h1 {
     margin: 0
   }
@@ -534,10 +522,6 @@ footer {
   nav {
     margin: 0 auto;
     position: relative;
-  }
-
-  header ul a {
-    margin: 0 0.5rem;
   }
 
   .logo h1 {
