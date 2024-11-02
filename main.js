@@ -2,10 +2,11 @@
 const progressBars = document.querySelectorAll('.progressbar')
 const observer = new IntersectionObserver(entries => {
     entries.forEach((entry) => {
-        if (entry.isIntersecting)  {
+        if (entry.isIntersecting) {
             entry.target.classList.add('progress')
             observer.unobserve(entry.target)
-    }}, {
+        }
+    }, {
         threshold: 1
     })
 })
@@ -71,7 +72,7 @@ function typeWriter(snippet) {
     }
     p.classList.toggle('newLine');
 
-    return new Promise((resolve) => { 
+    return new Promise((resolve) => {
         let index = 0;
 
         setTimeout(() => {
@@ -83,8 +84,8 @@ function typeWriter(snippet) {
                     clearInterval(typeWriterInterval);
                     resolve();
                 }
-            }, 100); 
-        }, 500); 
+            }, 100);
+        }, 500);
     });
 }
 
