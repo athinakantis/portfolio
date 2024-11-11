@@ -33,7 +33,7 @@ h1.addEventListener('click', () => {
     if (window.location.pathname === '/index.html') {
         window.scroll(0, 0);
     } else {
-        window.location.replace('http://127.0.0.1:5500/index.html');
+        window.location.replace('https://athinakantis.github.io/portfolio/');
     }
 })
 
